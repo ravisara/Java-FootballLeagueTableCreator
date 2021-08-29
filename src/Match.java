@@ -1,36 +1,36 @@
 public class Match
 {
-    private String homeTeam;
-    private String awayTeam;
-    private int homeScore;
-    private int awayScore;
+    private String mHomeTeam;
+    private String mAwayTeam;
+    private int mHomeScore;
+    private int mAwayScore;
 
     public Match( final String homeTeam, final String awayTeam, final int homeScore, final int awayScore )
     {
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
-        this.homeScore = homeScore;
-        this.awayScore = awayScore;
+        this.mHomeTeam = homeTeam;
+        this.mAwayTeam = awayTeam;
+        this.mHomeScore = homeScore;
+        this.mAwayScore = awayScore;
     }
 
     public String getHomeTeam()
     {
-        return homeTeam;
+        return mHomeTeam;
     }
 
     public String getAwayTeam()
     {
-        return awayTeam;
+        return mAwayTeam;
     }
 
     public int getHomeScore()
     {
-        return homeScore;
+        return mHomeScore;
     }
 
     public int getAwayScore()
     {
-        return awayScore;
+        return mAwayScore;
     }
 
 }
