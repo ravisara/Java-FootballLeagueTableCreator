@@ -22,27 +22,27 @@ Create the Matches that should be taken into account in the League Table and sto
 A match can be created as follows where the team names are followed by the scores of each team in order of the team names: 
 ```new Match("England", "Croatia", 1, 0);```
 
-E.g. create 6 matches with their end results as follows
+E.g. create 6 matches with their end results as follows 
 
-// Actual data from UEFA Euro England matches
-```Match match1 = new Match("England", "Croatia", 1, 0); // England score is 1 and Croatia score is 0```
-```Match match2 = new Match("England", "Scotland", 0, 0);```
-```Match match3 = new Match("Czech Republic", "England", 0, 1);```
+`// England matches`
+`Match match1 = new Match("England", "Croatia", 1, 0); // England score is 1 and Croatia score is 0 `
+`Match match2 = new Match("England", "Scotland", 0, 0);`
+`Match match3 = new Match("Czech Republic", "England", 0, 1);`
 
-// Croatia matches (excluding the above matches)
-```Match match4 = new Match("Croatia", "Czech Republic", 1, 1);```
-```Match match5 = new Match("Croatia", "Scotland", 3, 1);```
+`// Croatia matches (excluding the above matches)`
+`Match match4 = new Match("Croatia", "Czech Republic", 1, 1);`
+`Match match5 = new Match("Croatia", "Scotland", 3, 1);`
 
-// Czech Republic matches (excluding the above matches)
-```Match match6 = new Match("Scotland", "Czech Republic", 0, 2);```
+`// Czech Republic matches (excluding the above matches)`
+`Match match6 = new Match("Scotland", "Czech Republic", 0, 2);`
 
-// Create a list of matches 
-```List<Match> matches = ArrayList<>(Arrays.asList(match1, match2, match3, match4, match5, match6));```
+`// Create a list of matches`
+`List<Match> matches = ArrayList<>(Arrays.asList(match1, match2, match3, match4, match5, match6));`
 
 ## Step 2
 
-Feed in the matches list to the FootballLeagueTable class and store an instance of it in a variable of type as shown below```FootballLeagueTable```
-```FootballLeagueTable groupFleagueTableEuro2020 = new FootballLeagueTable(matches);```
+Feed in the matches list to the 'FootballLeagueTable` class and store an instance of it in a variable of type as shown below:
+`FootballLeagueTable groupFleagueTableEuro2020 = new FootballLeagueTable(matches);`
 
 ## Step 3
 ### 3.1) Default usage
