@@ -20,7 +20,7 @@ Football League Table Generator
 ## Step 1
 Create the Matches that should be taken into account in the League Table and store them in variables
 A match can be created as follows where the team names are followed by the scores of each team in order of the team names: 
-```new Match("England", "Croatia", 1, 0);```
+`new Match("England", "Croatia", 1, 0);`
 
 E.g. create 6 matches with their end results as follows 
 
