@@ -69,9 +69,9 @@ Table can be sorted in the Ascending or descending order by using any combinatio
 
 In the example below, the table is going to be sorted first in descending order of GOALS_FOR, then by LOST descending and finally by GOAL_DIFFERENCE descending. 
 
-```sortCriteriaToUse.put(Helper.SortBy.GOALS_FOR, Helper.SortOrder.DESCENDING);
-sortCriteriaToUse.put(Helper.SortBy.LOST, Helper.SortOrder.DESCENDING);
-sortCriteriaToUse.put(Helper.SortBy.GOAL_DIFFERENCE, Helper.SortOrder.DESCENDING);```
+`sortCriteriaToUse.put(Helper.SortBy.GOALS_FOR, Helper.SortOrder.DESCENDING);`
+`sortCriteriaToUse.put(Helper.SortBy.LOST, Helper.SortOrder.DESCENDING);`
+`sortCriteriaToUse.put(Helper.SortBy.GOAL_DIFFERENCE, Helper.SortOrder.DESCENDING);`
 
 The order the sort criteria are entered matters. If the first two lines above are swapped then it will first be sorted by LOST and then by GOALS_FOR.
 
@@ -81,7 +81,7 @@ Then call the `getTableEntries(3,1, sortCriteriaToUse)` method of the `groupFlea
 Note that the signature of the above method is as follows. So, in the example above, a point is worth 3 and a draw is worth 1. But arbitrary numbers can be used instead of those numbers depending on your requirements.
 `public List<FootballLeagueTableEntry> getTableEntries(int pointsAwinIsWorth, int pointsAdrawIsWorth, LinkedHashMap<Helper.SortBy, Helper.SortOrder> sortCriteria) `
 
-* `FootballLeagueTableTest` class can be used to test the `FootballLeagueTable` class to a good extent. If further guidance is needed, it is best to refer to the unit tests in this class for usage examples.
+`FootballLeagueTableTest` class can be used to test the `FootballLeagueTable` class to a good extent. If further guidance is needed, it is best to refer to the unit tests in this class for usage examples.
 
 # Contributing:
 No contributions are expected or necessary. If you find any issue with the code, please kindly report it as an issue.
