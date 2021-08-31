@@ -24,25 +24,25 @@ A match can be created as follows where the team names are followed by the score
 
 E.g. create 6 matches with their end results as follows 
 
-`// England matches`
-`Match match1 = new Match("England", "Croatia", 1, 0); // England score is 1 and Croatia score is 0 `
-`Match match2 = new Match("England", "Scotland", 0, 0);`
-`Match match3 = new Match("Czech Republic", "England", 0, 1);`
+`// England matches`  
+`Match match1 = new Match("England", "Croatia", 1, 0); // England score is 1 and Croatia score is 0`  
+`Match match2 = new Match("England", "Scotland", 0, 0);`  
+`Match match3 = new Match("Czech Republic", "England", 0, 1);`  
 
-`// Croatia matches (excluding the above matches)`
-`Match match4 = new Match("Croatia", "Czech Republic", 1, 1);`
-`Match match5 = new Match("Croatia", "Scotland", 3, 1);`
+`// Croatia matches (excluding the above matches)`  
+`Match match4 = new Match("Croatia", "Czech Republic", 1, 1);`  
+`Match match5 = new Match("Croatia", "Scotland", 3, 1);`  
 
-`// Czech Republic matches (excluding the above matches)`
-`Match match6 = new Match("Scotland", "Czech Republic", 0, 2);`
+`// Czech Republic matches (excluding the above matches)`  
+`Match match6 = new Match("Scotland", "Czech Republic", 0, 2);`  
 
-`// Create a list of matches`
-`List<Match> matches = ArrayList<>(Arrays.asList(match1, match2, match3, match4, match5, match6));`
+`// Create a list of matches`  
+`List<Match> matches = ArrayList<>(Arrays.asList(match1, match2, match3, match4, match5, match6));`  
 
 ## Step 2
 
-Feed in the matches list to the 'FootballLeagueTable` class and store an instance of it in a variable of type as shown below:
-`FootballLeagueTable groupFleagueTableEuro2020 = new FootballLeagueTable(matches);`
+When instantiating the `FootballLeagueTable` class, pass in the `matches` list to the constructor and store the resultant object in a variable of type `FootballLeagueTable` as shown below:  
+`FootballLeagueTable groupFleagueTableEuro2020 = new FootballLeagueTable(matches);`  
 
 ## Step 3
 ### 3.1) Default usage
@@ -52,48 +52,38 @@ By default, if simply getTableEntries() is called on the above object without pa
 * then sort by goal difference descending
 * then sort by goals for descending
 * then sort by team name ascending
-
 * A win is worth 3 points, and a draw is worth 1 point.
 
-`List<FootballLeagueTableEntry> finalizedLeagueTable = groupFleagueTableEuro2020.getTableEntries() // if the getTableEntries() method is called on the groupFleagueTableEuro2020 object above, it will use the above criteria` 
+`List<FootballLeagueTableEntry> finalizedLeagueTable = groupFleagueTableEuro2020.getTableEntries() // if the getTableEntries() method is called on the groupFleagueTableEuro2020 object above, it will use the above criteria`  
 
 For customizing the sort by fields and specifying the sort order for each field, please refer the customization section immediately below.
 
 ### 3.2) Customization (only if the default sort criteria above and the points for a win and a draw are not enough, and you want to use the full power of customization)
-If customization is needed, ignore Step 3.1 above and continue from here.
+If customization is needed, ignore Step 3.1 above and continue from here.  
 
-Create a LinkedHashMap to specify and hold the sort criteria to use. A normal HashMap would not do as the order of the entries matter.
-`LinkedHashMap<Helper.SortBy, Helper.SortOrder> sortCriteriaToUse = new LinkedHashMap<Helper.SortBy, Helper.SortOrder>();`
+Create a LinkedHashMap to specify and hold the sort criteria to use. A normal HashMap would not do as the order of the entries matter.  
+`LinkedHashMap<Helper.SortBy, Helper.SortOrder> sortCriteriaToUse = new LinkedHashMap<Helper.SortBy, Helper.SortOrder>();`  
 
-Table can be sorted in the Ascending or descending order by using any combination of the following :TEAM_NAME, PLAYED, WON, DRAWN, LOST, GOALS_FOR, GOALS_AGAINST, GOAL_DIFFERENCE, POINTS.
+Table can be sorted in the Ascending or descending order by using any combination of the following:  
+TEAM_NAME, PLAYED, WON, DRAWN, LOST, GOALS_FOR, GOALS_AGAINST, GOAL_DIFFERENCE, POINTS.  
 
-In the example below, the table is going to be sorted first in descending order of GOALS_FOR, then by LOST descending and finally by GOAL_DIFFERENCE descending. 
+In the example below, the table is going to be sorted first in descending order of GOALS_FOR, then by LOST descending and finally by GOAL_DIFFERENCE descending.  
 
-`sortCriteriaToUse.put(Helper.SortBy.GOALS_FOR, Helper.SortOrder.DESCENDING);`
-`sortCriteriaToUse.put(Helper.SortBy.LOST, Helper.SortOrder.DESCENDING);`
-`sortCriteriaToUse.put(Helper.SortBy.GOAL_DIFFERENCE, Helper.SortOrder.DESCENDING);`
+`sortCriteriaToUse.put(Helper.SortBy.GOALS_FOR, Helper.SortOrder.DESCENDING);`  
+`sortCriteriaToUse.put(Helper.SortBy.LOST, Helper.SortOrder.DESCENDING);`  
+`sortCriteriaToUse.put(Helper.SortBy.GOAL_DIFFERENCE, Helper.SortOrder.DESCENDING);`  
 
-The order the sort criteria are entered matters. If the first two lines above are swapped then it will first be sorted by LOST and then by GOALS_FOR.
+The order the sort criteria are entered matters. If the first two lines above are swapped then it will first be sorted by LOST and then by GOALS_FOR.  
 
-Then call the `getTableEntries(3,1, sortCriteriaToUse)` method of the `groupFleagueTableEuro2020` object of the `FootballLeagueTable` class created in step 2 above.
-`List<FootballLeagueTableEntry> finalizedLeagueTable = groupFleagueTableEuro2020.getTableEntries(3,1, sortCriteriaToUse);`
+Then call the `getTableEntries(3,1, sortCriteriaToUse)` method of the `groupFleagueTableEuro2020` object of the `FootballLeagueTable` class created in step 2 above.  
+`List<FootballLeagueTableEntry> finalizedLeagueTable = groupFleagueTableEuro2020.getTableEntries(3,1, sortCriteriaToUse);`  
 
-Note that the signature of the above method is as follows. So, in the example above, a point is worth 3 and a draw is worth 1. But arbitrary numbers can be used instead of those numbers depending on your requirements.
-`public List<FootballLeagueTableEntry> getTableEntries(int pointsAwinIsWorth, int pointsAdrawIsWorth, LinkedHashMap<Helper.SortBy, Helper.SortOrder> sortCriteria) `
-
+Note that the signature of the above method is as follows. So, in the example above, a point is worth 3 and a draw is worth 1. But arbitrary numbers can be used instead of those numbers depending on your requirements.  
+`public List<FootballLeagueTableEntry> getTableEntries(int pointsAwinIsWorth, int pointsAdrawIsWorth, LinkedHashMap<Helper.SortBy, Helper.SortOrder> sortCriteria) `  
 `FootballLeagueTableTest` class can be used to test the `FootballLeagueTable` class to a good extent. If further guidance is needed, it is best to refer to the unit tests in this class for usage examples.
 
 # Contributing:
-No contributions are expected or necessary. If you find any issue with the code, please kindly report it as an issue.
+No contributions are expected or necessary. If you find any issue with the code, please kindly report it as an issue. 
 
 # License: 
-MIT license 
-
-
-
-
-
-
-
-
-
+MIT license  
